@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODOList</title>
+</head>
+<body>
+    <h1>TODO</h1>
+    <article>
+        <section>
+            <form id = "new-todo-form">
+                <label>New Todo:</label>
+                <input type="text" name="todotext" placeholder="Type Your New Todo">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section>
+            <label>Search:</label>
+            <input id="search-in" type="text" placeholder="Search Your todo">
+        </section>
+        <section>
+            <label>
+                <input id="show-list-in" type="checkbox"> Show Todos
+            </label>
+        </section>
+    </article>
+    <h2>Your List:</h2>
+    <article id="search-out"></article>
+    <script src="jsfile.js"></script>
+</body>
+</html>
