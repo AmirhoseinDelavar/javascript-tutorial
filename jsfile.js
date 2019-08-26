@@ -1,13 +1,3 @@
-// // selecting the tags in html
-// const c = document.querySelector('p')
-// console.log(c)
-//
-// // removing operation on html tags
-// const a = document.querySelectorAll('p').forEach(function (item, index) {
-//     if (item.textContent.includes('the'))
-//         item.remove()
-// })
-
 // making dynamic contents on html
 const todos = [{
     text: 'eat',
@@ -19,32 +9,6 @@ const todos = [{
     text: 'run',
     complete: false
 }]
-
-// const countToDoList = document.createElement('p')
-// countToDoList.textContent = `Number of todolists total items ${todos.length}`
-// document.querySelector('body').append(countToDoList)
-
-// const countuncompleted = document.createElement('p')
-// countuncompleted.textContent = `Number of todo items ${todos.filter(function (item) {
-//     return !item.complete
-// }).length}`
-// document.querySelector('body').append(countuncompleted)
-
-// todos.forEach(function (item) {
-//     const newpara = document.createElement('p')
-//     newpara.textContent = item.text
-//     document.querySelector('body').append(newpara)
-// })
-
-// // input usage
-// document.querySelector('#new-todo-in').addEventListener('input', function (e) {
-//     console.log(e.target.value)
-// })
-
-// // button usage
-// document.querySelector('button.create-button#new-todo-button').addEventListener('click', function (e) {
-//     console.log(`${e},buttun clicked`)
-// })
 
 // Creating search field :
 const searchFilter ={
