@@ -44,6 +44,12 @@ document.querySelector('#new-todo-form').addEventListener('submit',function (e) 
 })
 //
 
+// todos left
+document.querySelector('#left-todo').append(`You Have ${todos.filter(function (todo) {
+    return !todo.complete
+}).length} Left`)
+//
+
 // Creating the show-checkbox
 document.querySelector('#show-list-in').addEventListener('change', function (e) {
     console.log(e.target.checked)
