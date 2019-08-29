@@ -24,9 +24,18 @@ const RenderNotes = function (todos, searchFilter) {
     // showing items on the list
     document.querySelector('#search-out').innerHTML = ''
     filteredTodos.forEach(function (todo) {
-        const todotag = document.createElement('p')
+        // creating a div for todo item with checkbox, delbtn, span
+        const newtododiv = document.createElement('div')
+        const todocheckbox = document.createElement('input')
+        const tododelbtn = document.createElement('button')
+        const todotag = document.createElement('span')
+
+        todocheckbox.setAttribute('type','checkbox')
+        tododelbtn.textContent = 'x'
         todotag.textContent = todo.text
-        document.querySelector('#search-out').append(todotag)
+
+        newtododiv.append(todocheckbox,todotag,tododelbtn)
+        document.querySelector('#search-out').append(newtododiv)
     })
     //
 

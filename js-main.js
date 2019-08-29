@@ -23,7 +23,6 @@ document.querySelector('#new-todo-form').addEventListener('submit', function (e)
 })
 //
 
-
 // Creating the hide-completed-checkbox
 document.querySelector('#hide-completed-ch').addEventListener('change', function (e) {
     searchFilter.hideCompleted = e.target.checked
