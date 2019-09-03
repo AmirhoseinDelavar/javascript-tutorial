@@ -7,6 +7,16 @@ const getTodos = function () {
 }
 //
 
+// todo remover by id
+function removeTodo(id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id
+    })
+    todos.splice(todoIndex,1)
+    localStorage.setItem('todos',JSON.stringify(todos))
+}
+//
+
 // render todos
 const searchFilter = {
     searchtext: '',
@@ -30,8 +40,17 @@ const RenderNotes = function (todos, searchFilter) {
         const tododelbtn = document.createElement('button')
         const todotag = document.createElement('span')
 
+        // checkbox part
         todocheckbox.setAttribute('type','checkbox')
+
+        // delbtn part
         tododelbtn.textContent = 'x'
+        tododelbtn.addEventListener(function () {
+            removeTodo(todo.id)
+            RenderNotes(todos,searchFilter)
+        })
+
+        // text of the note
         todotag.textContent = todo.text
 
         newtododiv.append(todocheckbox,todotag,tododelbtn)
@@ -49,9 +68,18 @@ const RenderNotes = function (todos, searchFilter) {
 }
 //
 
+//uuidv4
+function uuidv4() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    )
+}
+//
+
 // create and save a new todo
 const createnewnode = function (text) {
     const newtodo = {
+        id : uuidv4(),
         text: text,
         complete: false
     }
