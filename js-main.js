@@ -15,10 +15,9 @@ RenderNotes(todos, searchFilter)
 //
 
 // Creating Newtodo btn
-document.querySelector('#new-todo-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    createnewnode(e.target.elements.todotext.value)
-    e.target.elements.todotext.value = ''
+document.querySelector('#new-todo').addEventListener('click', function (e) {
+    const node = createnewnode('')
+    location.assign(`./edit.html#${node.id}`)
     RenderNotes(todos, searchFilter)
 })
 //

@@ -38,22 +38,29 @@ const RenderNotes = function (todos, searchFilter) {
         const newtododiv = document.createElement('div')
         const todocheckbox = document.createElement('input')
         const tododelbtn = document.createElement('button')
-        const todotag = document.createElement('span')
+        const todoanchor = document.createElement('a')
 
         // checkbox part
         todocheckbox.setAttribute('type','checkbox')
+        todocheckbox.checked = todo.complete
+        todocheckbox.addEventListener('click',function () {
+            todo.complete = todocheckbox.checked
+            localStorage.setItem('todos',JSON.stringify(todos))
+            RenderNotes(todos,searchFilter)
+        })
 
         // delbtn part
         tododelbtn.textContent = 'x'
-        tododelbtn.addEventListener(function () {
+        tododelbtn.addEventListener('click',function () {
             removeTodo(todo.id)
             RenderNotes(todos,searchFilter)
         })
 
-        // text of the note
-        todotag.textContent = todo.text
+        // anchor part
+        todoanchor.setAttribute('href',`./edit.html#${todo.id}`)
+        todoanchor.textContent = todo.text
 
-        newtododiv.append(todocheckbox,todotag,tododelbtn)
+        newtododiv.append(todocheckbox,todoanchor,tododelbtn)
         document.querySelector('#search-out').append(newtododiv)
     })
     //
@@ -85,5 +92,6 @@ const createnewnode = function (text) {
     }
     todos.push(newtodo)
     localStorage.setItem('todos', JSON.stringify(todos))
+    return newtodo
 }
 //
